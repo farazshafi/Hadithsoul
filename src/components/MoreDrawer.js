@@ -2,14 +2,11 @@ import React from 'react'
 import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    Button,
     useDisclosure,
-    Input,
     Box,
     Text,
     Link
@@ -64,7 +61,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/'>
+                            <Link display={"flex"} onClick={()=>{navigate("/")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-house "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -84,7 +81,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/collections'>
+                            <Link display={"flex"} onClick={()=>{navigate("/collections")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-users "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -104,7 +101,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/about'>
+                            <Link display={"flex"} onClick={()=>{navigate("/about")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-circle-info "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -124,7 +121,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/help'>
+                            <Link display={"flex"} onClick={()=>{navigate("/help")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-circle-question "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -155,7 +152,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/about'>
+                            <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-clock-rotate-left"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -175,7 +172,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/about'>
+                            <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-comment-dots "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -195,7 +192,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/about'>
+                            <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-bookmark "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -215,7 +212,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/about'>
+                            <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-volume-high"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -235,7 +232,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/about'>
+                            <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-image"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -255,7 +252,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/about'>
+                            <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-video"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -275,7 +272,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/about'>
+                            <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-file"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -295,7 +292,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/about'>
+                            <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-pray"></i>
                                 <Text
                                     fontFamily={"Istok Web"}

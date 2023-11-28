@@ -13,6 +13,7 @@ import SearchResultPage from "./pages/SearchResultPage";
 import SingleHadithPage from "./pages/SingleHadithPage";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import "./index.css"
+import CommingSoon from "./components/CommingSoon";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/search/:keyword' element={<SearchResultPage />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/help' element={<HelpPage />} />
+        <Route path='/comingsoon' element={<CommingSoon />} />
         <Route path='/hadithpage/:name/:chapter/:hadithNum/:from/:to/:bookname' element={<SingleHadithPage />} />
       </Routes>
       <Footer />

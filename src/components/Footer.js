@@ -93,28 +93,28 @@ const Footer = () => {
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        <Link href='/'>Home</Link>
+                        <Link onClick={()=>{navigate("/")}}>Home</Link>
                       </Text>
                       <Text
                         fontFamily={"Inter"}
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        <Link href='/about'>about</Link>
+                        <Link onClick={()=>{navigate("/about")}}>about</Link>
                       </Text>
                       <Text
                         fontFamily={"Inter"}
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        <Link href='/collections'>collections</Link>
+                        <Link onClick={()=>{navigate("/collections")}}>collections</Link>
                       </Text>
                       <Text
                         fontFamily={"Inter"}
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        <Link href="/help">help</Link>
+                        <Link onClick={()=>{navigate("/help")}}>help</Link>
                       </Text>
                     </Box>
                   </Col>

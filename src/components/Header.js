@@ -1,12 +1,16 @@
 import React from 'react'
-import { Box, Link, Text, Wrap, WrapItem } from "@chakra-ui/react"
-import { HamburgerIcon, SearchIcon, SunIcon } from "@chakra-ui/icons"
-import { Avatar } from '@chakra-ui/react'
+import { Box, Link, Text } from "@chakra-ui/react"
+// import { HamburgerIcon, SearchIcon, SunIcon } from "@chakra-ui/icons"
+// import { Avatar } from '@chakra-ui/react'
 import SearchDrawer from './SearchDrawer'
 import MoreDrawer from './MoreDrawer'
 import {ChakraProvider} from "@chakra-ui/react"
+import { useNavigate } from 'react-router'
 
 const Header = () => {
+
+const navigate = useNavigate()
+
   return (
     <ChakraProvider>
       <header>
@@ -27,7 +31,7 @@ const Header = () => {
             color={"white"}
             ml={"10px"}
           >
-            <Link href="/" _hover={{ textDecoration: "none" }}>
+            <Link onClick={()=>{navigate("/")}} _hover={{ textDecoration: "none" }}>
               Hadithsoul
             </Link>
           </Text>
