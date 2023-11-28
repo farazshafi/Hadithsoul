@@ -11,3 +11,59 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+::placeholder {
+  color: rgb(0, 0, 0);
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder {
+  /* Edge 12-18 */
+  color: rgb(0, 0, 0);
+}
+
+/* Small devices (landscape phones) */
+@media (max-width: 576px) {
+  .max-width-container {
+    max-width: 100%; /* Adjust max-width for small devices */
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 576px) and (max-width: 768px) {
+  .max-width-container {
+    max-width: 540px; /* Adjust max-width for medium devices */
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 768px) {
+  .max-width-container {
+    max-width: 960px; /* Adjust max-width for large devices */
+  }
+}
+.scroll-to-top-button {
+  /* display: none; */
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  padding: 0;
+  background-color: #ececec;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.scroll-to-top-button.visible {
+  display: block;
+}
+
+.scroll-to-top-button:hover {
+  background-color: #000000;
+  color: white
+}
