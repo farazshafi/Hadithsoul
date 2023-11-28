@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import GoBackBtn from '../components/GoBackBtn'
-import { Box, Text, useToast } from '@chakra-ui/react'
+import { Box, useToast } from '@chakra-ui/react'
 import Hadiths from '../components/Hadiths'
 import Offline from '../components/Offline'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { ChakraProvider } from "@chakra-ui/react"
-import { Container, Pagination, Box as MuiBox } from '@mui/material'
 const HadithPage = () => {
 
     const params = useParams()
     const name = params.name
     const chapter = Number(params.chapter)
     const toast = useToast()
-    const navigate = useNavigate()
     const scrollTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
     const [loadingHadith, setLoadingHadith] = useState(false)
     const [loading, setLoading] = useState(false)
     const [hadith, setHadith] = useState([])
     const [bookName, setBookName] = useState([])
     const [offline, setOffline] = useState(false)
-    const [lastpage, setLastPage] = useState(Number)
-    const [page, setPage] = useState(1);
-    const [totalItems, setTotalItems] = useState(Number);
+    // const [lastpage, setLastPage] = useState(Number)
+    // const [page, setPage] = useState(1);
+    // const [totalItems, setTotalItems] = useState(Number);
     // const [from, setFrom] = useState(Number);
     // const [to, setTo] = useState(Number);
     const [totalHadiths, setTotalHadiths] = useState(Number);
@@ -58,32 +56,37 @@ const HadithPage = () => {
                     console.log("it is darimi but not chapter 0")
 
                 }
-            } else if (name === "forty") {
-                if (chapter === 1) {
-                    const chapterJson = require(`../data/byChapter/forties/nawawi40/1.json`);
-                    setHadith(chapterJson.hadiths)
-                    setBookName(chapterJson.metadata.english.introduction)
-                    setTotalHadiths(chapterJson.metadata.length)
-                }
-                if (chapter === 2) {
-                    const chapterJson = require(`../data/byChapter/forties/qudsi40/1.json`);
-                    setHadith(chapterJson.hadiths)
-                    setBookName(chapterJson.metadata.english.introduction)
-                    setTotalHadiths(chapterJson.metadata.length)
-                }
-                if (chapter === 3) {
-                    const chapterJson = require(`../data/byChapter/forties/shahwaliullah40/1.json`);
-                    setHadith(chapterJson.hadiths)
-                    setBookName(chapterJson.metadata.english.introduction)
-                    setTotalHadiths(chapterJson.metadata.length)
-                }
-            } else if (name === "nawawi40") {
-                console.log("name === nawawi40")
-                const chapterJson = require(`../data/byChapter/forties/nawawi40/1.json`);
-                setHadith(chapterJson.hadiths)
-                setBookName(chapterJson.metadata.english.introduction)
-                setTotalHadiths(chapterJson.metadata.length)
-            } else {
+            }
+            // else if (name === "forty") {
+            //     if (chapter === 1) {
+            //         const chapterJson = require(`../data/byChapter/forties/nawawi40/1.json`);
+            //         setHadith(chapterJson.hadiths)
+            //         setBookName(chapterJson.metadata.english.introduction)
+            //         setTotalHadiths(chapterJson.metadata.length)
+            //     }
+            //     if (chapter === 2) {
+            //         console.log("chapter 2")
+            //         const chapterJson = require(`../data/byChapter/forties/qudsi40/1.json`);
+            //         setHadith(chapterJson.hadiths)
+            //         setBookName(chapterJson.metadata.english.introduction)
+            //         setTotalHadiths(chapterJson.metadata.length)
+            //     }
+            //     if (chapter === 3) {
+            //         console.log("chapter 3")
+            //         const chapterJson = require(`../data/byChapter/forties/shahwaliullah40/1.json`);
+            //         setHadith(chapterJson.hadiths)
+            //         setBookName(chapterJson.metadata.english.introduction)
+            //         setTotalHadiths(chapterJson.metadata.length)
+            //     }
+            // }
+            // else if (name === "nawawi40") {
+            //     console.log("name === nawawi40")
+            //     const chapterJson = require(`../data/byChapter/forties/nawawi40/1.json`);
+            //     setHadith(chapterJson.hadiths)
+            //     setBookName(chapterJson.metadata.english.introduction)
+            //     setTotalHadiths(chapterJson.metadata.length)
+            // }
+            else {
                 console.log(name)
                 const chapterJson = require(`../data/byChapter/theBooks/${name}/${chapter}.json`);
                 setHadith(chapterJson.hadiths)
@@ -112,11 +115,11 @@ const HadithPage = () => {
         }
     }
 
-    const handleChange = (event, selectedPage) => {
-        if (selectedPage >= 1 && selectedPage <= lastpage && selectedPage !== page) {
-            setPage(selectedPage);
-        }
-    };
+    // const handleChange = (event, selectedPage) => {
+    //     if (selectedPage >= 1 && selectedPage <= lastpage && selectedPage !== page) {
+    //         setPage(selectedPage);
+    //     }
+    // };
 
     useEffect(() => {
         fetchHadith()
@@ -124,7 +127,11 @@ const HadithPage = () => {
     useEffect(() => {
         scrollTop()
         fetchHadith();
-    }, [page, chapter, name]);
+    }, [
+        // page,
+        chapter,
+        name
+    ]);
     return (
         <>
             <ChakraProvider>

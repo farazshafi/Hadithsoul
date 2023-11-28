@@ -2,7 +2,7 @@ import { Box, Input, Table, Tbody, Td, Text, Th, Thead, Tr, useToast, Button, Ch
 import React, { useEffect, useState } from 'react'
 import Loader from '../components/Loader'
 import BetweenLine from '../components/BetweenLine'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ReadMore from '../components/ReadMore'
 import { Col, Row } from 'react-bootstrap'
 import GoBackBtn from '../components/GoBackBtn'
@@ -11,12 +11,11 @@ const SingleHadithPage = () => {
   const params = useParams()
   const chapter = params.chapter
   const name = params.name
-  const hadithNum = params.hadithNum
+  // const hadithNum = params.hadithNum
   const book = params.bookname
   const from = params.from
   const to = params.to
   const toast = useToast()
-  const navigate = useNavigate()
 
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState()
@@ -39,7 +38,7 @@ const SingleHadithPage = () => {
 
   const handleHadithSearch = async () => {
     setHadithNumber("")
-    if (hadithNumber > to || hadithNumber < from || hadithNumber == undefined) {
+    if (hadithNumber > to || hadithNumber < from || hadithNumber === undefined) {
       toast({
         title: `Not Found ${hadithNumber} Hadith`,
         description: `Enter between ${from}- ${to}`,
@@ -51,6 +50,7 @@ const SingleHadithPage = () => {
     } else {
       try {
         setLoading(true)
+        setResult("good")
         // const { data } = await axios.get(`/api/sunna/getHadithByNumber/${name}/${chapter}/${hadithNumber}`)
         // setResult(data)
         // (data)
@@ -83,7 +83,7 @@ const SingleHadithPage = () => {
           mb={0}
         >
           <span>{chapter}</span>
-          <span><i style={{ marginLeft: "10px" }} class="fa-solid fa-book"></i></span>
+          <span><i style={{ marginLeft: "10px" }} className="fa-solid fa-book"></i></span>
           <span style={{ marginLeft: "10px" }}>{book}</span>
         </Text>
         <Box

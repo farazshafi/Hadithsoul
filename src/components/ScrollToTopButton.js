@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const ScrollToTopButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {
     const scrollThreshold = 200;  // Adjust this value as needed
 
     if (window.scrollY > scrollThreshold) {
-      setIsVisible(true);
     } else {
-      setIsVisible(false);
     }
   };
 
@@ -32,7 +29,7 @@ const ScrollToTopButton = () => {
       onClick={scrollToTop}
       className={"scroll-to-top-button"}
     >
-      <i class="fa fa-chevron-up" aria-hidden="true"></i>
+      <i className="fa fa-chevron-up" aria-hidden="true"></i>
     </button>
   );
 };

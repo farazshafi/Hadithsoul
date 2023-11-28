@@ -1,6 +1,5 @@
 import React from 'react'
 import { Box } from "@chakra-ui/react"
-import { Container } from 'react-bootstrap'
 
 const BetweenLine = () => {
     return (

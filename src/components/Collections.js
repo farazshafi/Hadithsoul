@@ -1,6 +1,6 @@
-import { Box, Text, Button, Spinner, useToast } from '@chakra-ui/react'
+import { Box, Text, Button, useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Container, } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import OtherHadith from './OtherHadith'
 import BetweenLine from './BetweenLine'
@@ -42,8 +42,9 @@ const Collections = ({ directcall }) => {
 
     useEffect(() => {
         getCollectionsName()
+        // eslint-disable-next-line
     }, []);
-    
+
     return (
         <ChakraProvider>
             {directcall && (
@@ -75,11 +76,11 @@ const Collections = ({ directcall }) => {
                             {loading ? (
                                 <Loader />
                             ) : (
-                                collections && collections.map((imam) => (
-                                    <Col data-aos="fade-up"
+                                collections && collections.map((imam, index) => (
+                                    <Col key={index + 1} data-aos="fade-up"
                                         data-aos-duration="900"
                                         sm={6} md={4}>
-                                        <Button
+                                        <Button 
                                             onClick={() => navigate(`/collections/${imam.name}`)}
                                             mt={"15px"}
                                             width={"100%"}

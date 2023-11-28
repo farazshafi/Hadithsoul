@@ -62,7 +62,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-house "></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-house "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -82,7 +82,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/collections")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-users "></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-users "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -102,7 +102,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/about")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-circle-info "></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-circle-info "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -122,7 +122,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/help")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-circle-question "></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-circle-question "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -153,7 +153,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-clock-rotate-left"></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-clock-rotate-left"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -173,7 +173,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-comment-dots "></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-comment-dots "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -193,7 +193,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-bookmark "></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-bookmark "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -213,7 +213,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-volume-high"></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-volume-high"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -233,7 +233,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-image"></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-image"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -253,7 +253,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-video"></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-video"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -273,7 +273,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-file"></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-file"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}
@@ -293,7 +293,7 @@ const MoreDrawer = () => {
                             mb={"10px"}
                         >
                             <Link display={"flex"} onClick={()=>{navigate("/comingsoon")}}>
-                                <i style={{ marginTop: "3px", }} class="fa-solid fa-pray"></i>
+                                <i style={{ marginTop: "3px", }} className="fa-solid fa-pray"></i>
                                 <Text
                                     fontFamily={"Istok Web"}
                                     fontSize={{ lg: "lg", sm: "sm" }}

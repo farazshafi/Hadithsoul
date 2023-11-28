@@ -6,13 +6,11 @@ import {
     Tr,
     Th,
     Td,
-    useToast,
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import Loader from "../components/Loader"
-import { ArrowRightIcon, Rig } from "@chakra-ui/icons"
+import { ArrowRightIcon } from "@chakra-ui/icons"
 import { useNavigate } from 'react-router-dom'
-import Offline from "../components/Offline"
 import booksOfBukhari from "../data/book chapters/bukhariBookChapters"
 import booksOfMuslim from "../data/book chapters/muslimBookChapters"
 import booksOfMalik from "../data/book chapters/malikBookChapters"
@@ -77,9 +75,8 @@ const AboutBook = ({ name }) => {
     }
 
     useEffect(() => {
-
         fetchBookname()
-    }, []);
+    }, [fetchBookname]);
 
     return (
         <>

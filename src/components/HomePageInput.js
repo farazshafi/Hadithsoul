@@ -3,7 +3,6 @@ import {
     FormControl,
     Box,
     Input,
-    Center,
     Button
 } from '@chakra-ui/react'
 import HomeBackgroundImg from "../images/bismillah.png"

@@ -44,11 +44,12 @@ const ReadMore = ({ text, keyword }) => {
 
   return (
     <div>
-      <p dangerouslySetInnerHTML={{ __html: highlightedText }} />
+      <div dangerouslySetInnerHTML={{ __html: highlightedText }} />
       {text.length > maxCharacters && (
         <Button
           color={"white"}
           bg={"#272F33"}
+          mt={"5px"}
           size={{ base: "xs", md: "sm", lg: "md" }}
           onClick={toggleText}
           _hover={{ color: "white", bgColor: "black" }}

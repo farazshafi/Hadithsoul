@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import GoBackBtn from '../components/GoBackBtn'
 import ShortProfileImam from '../components/ShortProfileImam'
 import { Box, Text } from '@chakra-ui/react'

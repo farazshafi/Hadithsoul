@@ -73,9 +73,9 @@ const ShortProfileImam = ({ profilePage, name }) => {
             setLoading(false)
         }
     }
-
     useEffect(() => {
         getCollectionsDetails()
+        // eslint-disable-next-line
     }, []);
 
     return (

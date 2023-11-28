@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import BetweenLine from '../components/BetweenLine'
 import Loader from './Loader'
@@ -12,16 +12,10 @@ import {
     Tr,
     Th,
     Td,
-    Input,
-    Button,
-    useToast
 } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
 
 
 const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, name, total }) => {
-    const toast = useToast()
-    const navigate = useNavigate()
     // useState goes here
     // const [hadithNum, setHadithNum] = useState()
 
@@ -43,10 +37,8 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
 
     // }
 
-    useEffect(() => {
-        console.log("bookname",bookname)
-    }, [])
-    
+
+
     return (
         <>
             {/* Book name */}
@@ -63,7 +55,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                     mb={0}
                 >
                     <span>{chapter}</span>
-                    <span><i style={{ marginLeft: "10px" }} class="fa-solid fa-book"></i></span>
+                    <span><i style={{ marginLeft: "10px" }} className="fa-solid fa-book"></i></span>
                     <span style={{ marginLeft: "10px" }}>: {bookname}</span>
                 </Text>
                 <Box
@@ -81,21 +73,29 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                             <Table mb={{ base: "10px", md: "15px", lg: "20px" }} border={"solid"} bgColor={"#242424"} size={{ base: "sm", md: "md", lg: "lg" }}>
                                 {loading ? (
                                     <Loader />
-                                ) : (<>
-                                    <Thead>
-                                        <Tr>
-                                            <Th color={"white"} textAlign={""}>Total Hadiths</Th>
-                                            {/* <Th color={"white"} textAlign={""}>TO</Th> */}
-                                        </Tr>
-                                    </Thead>
-                                    <Tbody>
-                                        <Td color={"white"} textAlign={"center"}>{total}</Td>
-                                        {/* <Td color={"white"} textAlign={""}>{to}</Td> */}
-                                    </Tbody>
-                                </>)}
-
+                                ) : (
+                                    <>
+                                        <Thead>
+                                            <Tr>
+                                                <Th color={"white"} textAlign={""}>
+                                                    Total Hadiths
+                                                </Th>
+                                                {/* <Th color={"white"} textAlign={""}>TO</Th> */}
+                                            </Tr>
+                                        </Thead>
+                                        <Tbody>
+                                            <Tr>
+                                                <Td color={"white"} textAlign={"center"}>
+                                                    {total}
+                                                </Td>
+                                                {/* <Td color={"white"} textAlign={""}>{to}</Td> */}
+                                            </Tr>
+                                        </Tbody>
+                                    </>
+                                )}
                             </Table>
-                            {/* <Box>
+                        </Box>
+                        {/* <Box>
                                 <Input
                                     onChange={(e) => setHadithNum(e.target.value)}
                                     value={hadithNum}
@@ -116,7 +116,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                                     Search
                                 </Button>
                             </Box> */}
-                        </Box>
+
                     </Box>
                 </Box>
 
@@ -126,7 +126,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
 
             <>
                 {data && data.map((item, index) => (
-                    <Box>
+                    <Box key={index + 1}>
                         {/* Chapter */}
                         <Box
                             bg={"#242424"}
@@ -162,15 +162,17 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                             pl={{ base: "4%", md: "15%", lg: "15%" }}
                             mb={{ base: "20px", md: "20px", lg: "25px" }}
                         >
-                            <Text
-                                fontFamily={"Inter"}
-                                fontSize={{ lg: "25px", md: "22px", base: "15px" }}
-                                fontWeight={700}
-                                textAlign={"end"}
-                                color={"white"}
-                            >
-                                <ReadMore text={item.arabic} />
-                            </Text>
+                            <Box>
+                                <Text
+                                    fontFamily={"Inter"}
+                                    fontSize={{ lg: "25px", md: "22px", base: "15px" }}
+                                    fontWeight={700}
+                                    textAlign={"end"}
+                                    color={"white"}
+                                >
+                                    <ReadMore text={item.arabic} />
+                                </Text>
+                            </Box>
                         </Box>
                         {/* English Hadith */}
                         {item.english.text && (
@@ -222,8 +224,8 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                                         <Text
                                             color={"white"}
                                         >
-                                            <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>In-book reference : </text>
-                                            <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "5px" } }}>book {chapter} , Hadith {index + 1}</text>
+                                            <p style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>In-book reference : </p>
+                                            <p style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "5px" } }}>book {chapter} , Hadith {index + 1}</p>
                                         </Text>
                                     </Box>
                                 </Col>
@@ -237,7 +239,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                                         bg={"#272F33"}
                                         color={"white"}
                                     >
-                                        <i style={{ marginRight: "10px" }} class="fa-regular fa-bookmark"></i>
+                                        <i style={{ marginRight: "10px" }} className="fa-regular fa-bookmark"></i>
                                         SAVE TO BOOKMARK
                                     </Button>
                                 </Box>

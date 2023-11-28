@@ -1,4 +1,3 @@
-import { LinkIcon } from '@chakra-ui/icons'
 import { Box, Link, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
