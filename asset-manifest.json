@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/hadithsoul/static/css/main.4a5a1092.css",
-    "main.js": "/hadithsoul/static/js/main.be274d9b.js",
-    "static/media/about.png": "/hadithsoul/static/media/about.0c6f9556a9677b68c299.png",
-    "static/media/leaf.png": "/hadithsoul/static/media/leaf.7ab83bb6cb17cdc44d12.png",
-    "static/media/flower2.png": "/hadithsoul/static/media/flower2.1ed5e9c8d97aa0c514f5.png",
-    "static/media/flower3.png": "/hadithsoul/static/media/flower3.8a563b9df3b60fcd31d6.png",
-    "static/media/flower.png": "/hadithsoul/static/media/flower.aa27b22cc590acfeab44.png",
-    "static/media/bismillah.png": "/hadithsoul/static/media/bismillah.7964dde22756974148aa.png",
-    "index.html": "/hadithsoul/index.html",
-    "main.4a5a1092.css.map": "/hadithsoul/static/css/main.4a5a1092.css.map",
-    "main.be274d9b.js.map": "/hadithsoul/static/js/main.be274d9b.js.map"
+    "main.css": "/static/css/main.4a5a1092.css",
+    "main.js": "/static/js/main.ece29f0e.js",
+    "static/media/about.png": "/static/media/about.0c6f9556a9677b68c299.png",
+    "static/media/leaf.png": "/static/media/leaf.7ab83bb6cb17cdc44d12.png",
+    "static/media/flower2.png": "/static/media/flower2.1ed5e9c8d97aa0c514f5.png",
+    "static/media/flower3.png": "/static/media/flower3.8a563b9df3b60fcd31d6.png",
+    "static/media/flower.png": "/static/media/flower.aa27b22cc590acfeab44.png",
+    "static/media/bismillah.png": "/static/media/bismillah.7964dde22756974148aa.png",
+    "index.html": "/index.html",
+    "main.4a5a1092.css.map": "/static/css/main.4a5a1092.css.map",
+    "main.ece29f0e.js.map": "/static/js/main.ece29f0e.js.map"
   },
   "entrypoints": [
     "static/css/main.4a5a1092.css",
-    "static/js/main.be274d9b.js"
+    "static/js/main.ece29f0e.js"
   ]
 }
