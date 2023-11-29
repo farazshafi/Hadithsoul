@@ -5,6 +5,7 @@ import Hadiths from '../components/Hadiths'
 import Offline from '../components/Offline'
 import { useParams } from 'react-router-dom'
 import { ChakraProvider } from "@chakra-ui/react"
+import { Box as MuiBox, Pagination } from "@mui/material"
 const HadithPage = () => {
 
     const params = useParams()
@@ -12,13 +13,15 @@ const HadithPage = () => {
     const chapter = Number(params.chapter)
     const toast = useToast()
     const scrollTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
     const [loadingHadith, setLoadingHadith] = useState(false)
     const [loading, setLoading] = useState(false)
     const [hadith, setHadith] = useState([])
     const [bookName, setBookName] = useState([])
     const [offline, setOffline] = useState(false)
-    // const [lastpage, setLastPage] = useState(Number)
-    // const [page, setPage] = useState(1);
+    const [lastpage, setLastPage] = useState(1)
+    const [page, setPage] = useState(1)
+    const perPage = 25
     // const [totalItems, setTotalItems] = useState(Number);
     // const [from, setFrom] = useState(Number);
     // const [to, setTo] = useState(Number);
@@ -34,11 +37,15 @@ const HadithPage = () => {
                     setHadith(chapterJson.hadiths)
                     setBookName(chapterJson.metadata.english.introduction)
                     setTotalHadiths(chapterJson.metadata.length)
+                    let totalhadiths = chapterJson.metadata.length;
+                    setLastPage(Math.ceil(totalhadiths / perPage));
                 } else {
                     const chapterJson = require(`../data/byChapter/theBooks/${name}/${Number(chapter + 1)}.json`);
                     setHadith(chapterJson.hadiths)
                     setBookName(chapterJson.metadata.english.introduction)
                     setTotalHadiths(chapterJson.metadata.length)
+                    let totalhadiths = chapterJson.metadata.length;
+                    setLastPage(Math.ceil(totalhadiths / perPage));
 
                 }
             } else if (name === "darimi") {
@@ -47,13 +54,15 @@ const HadithPage = () => {
                     setHadith(chapterJson.hadiths)
                     setBookName([])
                     setTotalHadiths(chapterJson.metadata.length)
-                    console.log("it is darimi + chapter 0")
+                    let totalhadiths = chapterJson.metadata.length;
+                    setLastPage(Math.ceil(totalhadiths / perPage));
                 } else {
                     const chapterJson = require(`../data/byChapter/theBooks/${name}/${Number(chapter + 1)}.json`);
                     setHadith(chapterJson.hadiths)
                     setBookName(chapterJson.metadata.english.introduction)
                     setTotalHadiths(chapterJson.metadata.length)
-                    console.log("it is darimi but not chapter 0")
+                    let totalhadiths = chapterJson.metadata.length;
+                    setLastPage(Math.ceil(totalhadiths / perPage));
 
                 }
             }
@@ -65,14 +74,14 @@ const HadithPage = () => {
             //         setTotalHadiths(chapterJson.metadata.length)
             //     }
             //     if (chapter === 2) {
-            //         console.log("chapter 2")
+            //         ("chapter 2")
             //         const chapterJson = require(`../data/byChapter/forties/qudsi40/1.json`);
             //         setHadith(chapterJson.hadiths)
             //         setBookName(chapterJson.metadata.english.introduction)
             //         setTotalHadiths(chapterJson.metadata.length)
             //     }
             //     if (chapter === 3) {
-            //         console.log("chapter 3")
+            //         ("chapter 3")
             //         const chapterJson = require(`../data/byChapter/forties/shahwaliullah40/1.json`);
             //         setHadith(chapterJson.hadiths)
             //         setBookName(chapterJson.metadata.english.introduction)
@@ -80,19 +89,19 @@ const HadithPage = () => {
             //     }
             // }
             // else if (name === "nawawi40") {
-            //     console.log("name === nawawi40")
+            //     ("name === nawawi40")
             //     const chapterJson = require(`../data/byChapter/forties/nawawi40/1.json`);
             //     setHadith(chapterJson.hadiths)
             //     setBookName(chapterJson.metadata.english.introduction)
             //     setTotalHadiths(chapterJson.metadata.length)
             // }
             else {
-                console.log(name)
                 const chapterJson = require(`../data/byChapter/theBooks/${name}/${chapter}.json`);
                 setHadith(chapterJson.hadiths)
                 setBookName(chapterJson.metadata.english.introduction)
                 setTotalHadiths(chapterJson.metadata.length)
-                console.log("other people")
+                let totalhadiths = chapterJson.metadata.length;
+                setLastPage(Math.ceil(totalhadiths / perPage));
             }
             // setTotalItems(bukhariHadith.totalItems)
             // setFrom(bukhariHadith.from)
@@ -115,23 +124,19 @@ const HadithPage = () => {
         }
     }
 
-    // const handleChange = (event, selectedPage) => {
-    //     if (selectedPage >= 1 && selectedPage <= lastpage && selectedPage !== page) {
-    //         setPage(selectedPage);
-    //     }
-    // };
+    const handleChange = (event, selectedPage) => {
+        setPage(prevPage => (selectedPage >= 1 && selectedPage <= lastpage && selectedPage !== prevPage) ? selectedPage : prevPage);
+    };
 
     useEffect(() => {
         fetchHadith()
+        // eslint-disable-next-line
     }, []);
     useEffect(() => {
         scrollTop()
         fetchHadith();
-    }, [
-        // page,
-        chapter,
-        name
-    ]);
+        // eslint-disable-next-line
+    }, [page, chapter, name]);
     return (
         <>
             <ChakraProvider>
@@ -151,6 +156,7 @@ const HadithPage = () => {
                                 chapter={chapter}
                                 loading={loading}
                                 data={hadith}
+                                page={page}
                                 // from={1}
                                 // totalItems={30}
                                 total={totalHadiths}
@@ -162,7 +168,8 @@ const HadithPage = () => {
                     }
                 </Box >
             </ChakraProvider>
-            {/* <MuiBox
+            {lastpage > 1 && (
+                <MuiBox
                     display={"flex"}
                     alignItems={"center"}
                     justifyContent={"center"}
@@ -171,7 +178,8 @@ const HadithPage = () => {
                     bgcolor={"white"}
                 >
                     <Pagination color='primary' count={lastpage} page={page} onChange={handleChange} />
-                </MuiBox> */}
+                </MuiBox>
+            )}
         </>
 
     )

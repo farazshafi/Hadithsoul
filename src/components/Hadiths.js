@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react'
 
 
-const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, name, total }) => {
+const Hadiths = ({ page, data, loading, bookname, chapter, loadingHadith, from, to, name, total }) => {
     // useState goes here
     // const [hadithNum, setHadithNum] = useState()
 
@@ -125,8 +125,12 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
             {loadingHadith && <Loader />}
 
             <>
-                {data && data.map((item, index) => (
-                    <Box key={index + 1}>
+                {data && data.slice(page * 25 - 25, page * 25).map((item, index) => (
+                    <Box
+                        data-aos="fade-up"
+                        data-aos-duration="900"
+                        key={index + 1}
+                    >
                         {/* Chapter */}
                         <Box
                             bg={"#242424"}
@@ -135,8 +139,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                             pt={{ base: "8px", md: "12px", lg: "15px" }}
                             pb={{ base: "8px", md: "12px", lg: "15px" }}
                             mb={"25px"}
-                            data-aos="fade-up"
-                            data-aos-duration="900"
+
                         >
                             <Text
                                 color={"white"}
@@ -144,20 +147,22 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                                 fontFamily={"Istok Web"}
                                 fontWeight={700}
                             >
-                                CHAPTER {item.id}
+                                CHAPTER <b>{item.id}</b>
                             </Text>
-                            <Text
-                                color={"white"}
-                                fontSize={{ lg: "18px", md: "18px", base: "13px" }}
-                                fontFamily={"Inter"}
-                            >
-                                {item.headingEnglish ? item.headingEnglish : "No Title"}
-                            </Text>
+                            {item.headingEnglish && (
+                                <Text
+                                    color={"white"}
+                                    fontSize={{ lg: "18px", md: "18px", base: "13px" }}
+                                    fontFamily={"Inter"}
+                                >
+                                    {item.headingEnglish}
+                                </Text>
+                            )}
+
                         </Box>
                         {/* Arabic Hadith */}
                         <Box
-                            data-aos="fade-up"
-                            data-aos-duration="900"
+
                             bg={"#1F2125"}
                             pl={{ base: "4%", md: "15%", lg: "15%" }}
                             mb={{ base: "20px", md: "20px", lg: "25px" }}
@@ -177,8 +182,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                         {/* English Hadith */}
                         {item.english.text && (
                             <Box
-                                data-aos="fade-up"
-                                data-aos-duration="900"
+
                                 bg={"#FFF"}
                                 borderRadius={"0px 40px 40px 0px"}
                                 pl={{ base: "10px", md: "20px", lg: "30px" }}
@@ -208,10 +212,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                         )}
 
                         {/* Reference and save to bookmark btn */}
-                        <Box
-                            data-aos="fade-up"
-                            data-aos-duration="900"
-                        >
+                        <Box>
                             <Row>
                                 <Col sm={12} md={6}>
                                     <Box>
@@ -221,12 +222,24 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                                             <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "3px" } }}>Reference :</text>
                                             <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "10px" }, fontWeight: "400" }}>{item.bookSlug}-{item.hadithNumber}</text>
                                         </Text> */}
-                                        <Text
-                                            color={"white"}
+                                        <Box
+                                            display={"flex"}
                                         >
-                                            <p style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>In-book reference : </p>
-                                            <p style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "5px" } }}>book {chapter} , Hadith {index + 1}</p>
-                                        </Text>
+                                            <Text
+                                                color={"white"}
+                                                fontFamily={"Istok Web"}
+                                                fontSize={{ lg: "18px", md: '15px', base: "13px" }}
+                                            >
+                                                In-book reference :
+                                            </Text>
+                                            <Text
+                                                color={"white"}
+                                                fontFamily={"Inter"}
+                                                fontSize={{ lg: "15px", md: '13x', base: "11px" }}
+                                            >
+                                                book <b>{chapter}</b> , Hadith <b>{item.id}</b>
+                                            </Text>
+                                        </Box>
                                     </Box>
                                 </Col>
                                 {/* Save to bookmark */}

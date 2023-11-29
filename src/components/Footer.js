@@ -59,7 +59,7 @@ const Footer = () => {
                   fontWeight={400}
                   color={"white"}
                 >
-                  Welcome to Hadithsoul - Your sanctuary of authentic Hadith! Explore the wisdom of Prophet Muhammad (peace be upon him) through sacred traditions. Special thanks to sunnah.com for their API support. Delve into the six esteemed Hadith collections and over 40 narrations, including Qudsi Hadith. Let these divine teachings enlighten your soul as we strive for unity and compassion in our journey of faith.                </Text>
+                  Welcome to Hadithsoul - Your sanctuary of authentic Hadith! Explore the wisdom of Prophet Muhammad (peace be upon him) through sacred traditions. Delve into the six esteemed Hadith collections and over 40 narrations, including Qudsi Hadith. Let these divine teachings enlighten your soul as we strive for unity and compassion in our journey of faith.                </Text>
                 <Box
                   height={"5px"}
                   width={"100%"}
