@@ -1,4 +1,4 @@
-import { Box, Button, Text, useToast } from '@chakra-ui/react'
+import { Box, Button, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import GoBackBtn from '../components/GoBackBtn'
 import BetweenLine from '../components/BetweenLine'
@@ -8,14 +8,14 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Loader from '../components/Loader'
 import ReadMore from "../components/ReadMore"
 import { ChakraProvider } from "@chakra-ui/react"
-import { Pagination, Box as MuiBox, Container } from "@mui/material"
+import { Pagination, Box as MuiBox } from "@mui/material"
+import axios from 'axios'
 
 const SearchResultPage = () => {
   const params = useParams()
   const navigate = useNavigate()
-  const toast = useToast()
   const keyword = params.keyword
-  const scrollTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  const apiKey = "$2y$10$vhinBxDh1TAifFGWHzFTa168UHsATYNTR4pBRt1vgfnUmA5Qqcy"
 
   // useState handles here -------------------
   const [loading, setLoading] = useState(false)
@@ -28,13 +28,10 @@ const SearchResultPage = () => {
   const fetchSearchResult = async () => {
     try {
       setLoading(true)
-      // const { data } = await axios.get(`/api/sunna/getSearchedHadith/${keyword}/${page}`)
-      let data;
-      setBookName(data.hadith)
-      const totalItems = data.totalItems
-      const itemsPerPage = 25
-      const totalPages = Math.ceil(totalItems / itemsPerPage);
-      setLastPage(totalPages);
+      const { data } = await axios.get(`https://www.hadithapi.com/api/hadiths?apiKey=${apiKey}&hadithEnglish=${keyword}&paginate=25&page=${page}`) 
+      setBookName(data.hadiths.data)
+      const lastPage = data.hadiths.last_page
+      setLastPage(lastPage);
       setHadith(true)
       setLoading(false)
     } catch (error) {
@@ -52,6 +49,7 @@ const SearchResultPage = () => {
   // useEffect handles here ---------------------------------
   useEffect(() => {
     fetchSearchResult()
+    // eslint-disable-next-line
   }, [keyword]);
 
   useEffect(() => {
@@ -60,12 +58,13 @@ const SearchResultPage = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     fetchSearchResult();
+    // eslint-disable-next-line
   }, [page]);
 
   return (
     <>
       <ChakraProvider>
-        <HomePageInput />
+        <HomePageInput/>
         <GoBackBtn page={"Search"} />
         <Box
           pl={{ base: "5%", md: "91px", lg: "91px" }}
