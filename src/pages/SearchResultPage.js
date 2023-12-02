@@ -16,14 +16,14 @@ const SearchResultPage = () => {
   const navigate = useNavigate()
   const keyword = params.keyword
   const apiKey = "$2y$10$vhinBxDh1TAifFGWHzFTa168UHsATYNTR4pBRt1vgfnUmA5Qqcy"
-
+  
   // useState handles here -------------------
   const [loading, setLoading] = useState(false)
   const [bookName, setBookName] = useState([])
   const [hadith, setHadith] = useState(true)
   const [lastpage, setLastPage] = useState(Number)
   const [page, setPage] = useState(1);
-
+  const [totalHadiths,setTotalHadiths] = useState(Number)
   // Functions handles here -------------------------------------
   const fetchSearchResult = async () => {
     try {
@@ -31,6 +31,7 @@ const SearchResultPage = () => {
       const { data } = await axios.get(`https://www.hadithapi.com/api/hadiths?apiKey=${apiKey}&hadithEnglish=${keyword}&paginate=25&page=${page}`) 
       setBookName(data.hadiths.data)
       const lastPage = data.hadiths.last_page
+      setTotalHadiths(data.hadiths.total)
       setLastPage(lastPage);
       setHadith(true)
       setLoading(false)
@@ -81,6 +82,15 @@ const SearchResultPage = () => {
             pt={{ base: "15px", md: "30px", lg: "40px" }}
             fontWeight={700}
           >SEARCH RESULT</Text>
+          {totalHadiths && (
+          <Text
+            fontFamily={"Istok Web"}
+            textAlign={"center"}
+            color={"white"}
+            fontSize={{ base: "md", md: "lg", lg: "xl" }}
+            pt={{ base: "15px", md: "30px", lg: "40px" }}
+          >Found {totalHadiths} Hadiths</Text>  
+          )}
           <BetweenLine />
           {loading && <Loader />}
           {!hadith && (
