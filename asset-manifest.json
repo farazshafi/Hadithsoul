@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.4a5a1092.css",
-    "main.js": "/static/js/main.b4d00dc9.js",
+    "main.js": "/static/js/main.b87f211f.js",
     "static/media/about.png": "/static/media/about.0c6f9556a9677b68c299.png",
     "static/media/bismillah.png": "/static/media/bismillah.7964dde22756974148aa.png",
     "index.html": "/index.html",
     "main.4a5a1092.css.map": "/static/css/main.4a5a1092.css.map",
-    "main.b4d00dc9.js.map": "/static/js/main.b4d00dc9.js.map"
+    "main.b87f211f.js.map": "/static/js/main.b87f211f.js.map"
   },
   "entrypoints": [
     "static/css/main.4a5a1092.css",
-    "static/js/main.b4d00dc9.js"
+    "static/js/main.b87f211f.js"
   ]
 }
