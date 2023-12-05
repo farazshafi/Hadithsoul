@@ -76,7 +76,8 @@ const AboutBook = ({ name }) => {
 
     useEffect(() => {
         fetchBookname()
-    }, [fetchBookname]);
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <>

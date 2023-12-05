@@ -13,13 +13,13 @@ import imams from '../data/collections'
 
 const Collections = ({ directcall }) => {
     const [collections, setCollections] = useState([])
-    const [loading, setLoading] = useState(false)
+const [loading, setLoading] = useState(false)
     const [internet, setInternet] = useState(true)
 
     const navigate = useNavigate()
     const toast = useToast()
 
-    const getCollectionsName = async () => {
+const getCollectionsName = async () => {
         try {
             setLoading(true)
             setInternet(true)
@@ -61,7 +61,7 @@ const Collections = ({ directcall }) => {
                 bg={"#1F2125"}
                 pb={"20px"}
             >
-                {internet ? (
+               {internet ? (
                     <>
                         <Text
                             fontFamily={"Inter"}
@@ -70,7 +70,7 @@ const Collections = ({ directcall }) => {
                             fontWeight={700}
                             color={"white"}
                         >
-                            SIX MOST AUTHENTIC COLLECTIONS OF AHADITH
+                             MOST AUTHENTIC COLLECTIONS OF AHADITH
                         </Text>
                         <Row>
                             {loading ? (
@@ -78,26 +78,26 @@ const Collections = ({ directcall }) => {
                             ) : (
                                 collections && collections.map((imam, index) => (
                                     <Col key={index + 1} data-aos="fade-up"
-                                        data-aos-duration="900"
-                                        sm={6} md={4}>
-                                        <Button 
-                                            onClick={() => navigate(`/collections/${imam.name}`)}
-                                            mt={"15px"}
-                                            width={"100%"}
-                                            _hover={{ bgColor: "#272F33", color: "white" }}
-                                            color={"blackAlpha.800"}
-                                            bgColor={"#D9D9D9"}
-                                            variant={"solid"}
-                                        >
-                                            {imam.collection[0].title}
-                                        </Button>
-                                    </Col>
-                                ))
+                                data-aos-duration="900"
+                                sm={6} md={4}>
+                                <Button
+                                    onClick={() => navigate(`/collections/${imam.name}`)}
+                                    mt={"15px"}
+                                    width={"100%"}
+                                    _hover={{ bgColor: "#272F33", color: "white" }}
+                                    color={"blackAlpha.800"}
+                                    bgColor={"#D9D9D9"}
+                                    variant={"solid"}
+                                >
+                                    {imam.collection[0].title}
+                                </Button>
+                            </Col>
+))
                             )}
 
                         </Row>
                     </>
-                ) : (
+) : (
                     <Offline />
                 )}
 

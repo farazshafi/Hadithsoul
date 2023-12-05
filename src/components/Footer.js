@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap'
 import { ChakraProvider } from "@chakra-ui/react"
 import Loader from "./Loader"
 import { useNavigate } from "react-router-dom"
-
+import imams from "../data/collections"
 const Footer = () => {
 
   const navigate = useNavigate()
@@ -12,27 +12,21 @@ const Footer = () => {
   const [loading, setLoading] = useState(false)
   const [names, setNames] = useState([])
 
-  useEffect(() => {
-    // Check if data is already present in localStorage
-    const storedCollection = localStorage.getItem("collections")
-    if (storedCollection) {
-      setNames(JSON.parse(storedCollection))
-    } else {
-      getnames()
-    }
-  }, [])
 
-
-  const getnames = async () => {
+  const getImamsNames = () => {
     try {
       setLoading(true)
-      // const { data } = await axios.get("/api/sunna/getCollectionsName")
-      // setNames(data)
+      setNames(imams.data)
       setLoading(false)
-    } catch (error) {
-      console.log("error", error)
+    }catch(error){
+      console.log(error)
+      setLoading(false)
     }
   }
+
+  useEffect(() => {
+    getImamsNames()
+  }, [])
 
   return (
     <ChakraProvider>
@@ -92,28 +86,28 @@ const Footer = () => {
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        <Link onClick={()=>{navigate("/")}}>Home</Link>
+                        <Link onClick={() => { navigate("/") }}>Home</Link>
                       </Text>
                       <Text
                         fontFamily={"Inter"}
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        <Link onClick={()=>{navigate("/about")}}>about</Link>
+                        <Link onClick={() => { navigate("/about") }}>about</Link>
                       </Text>
                       <Text
                         fontFamily={"Inter"}
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        <Link onClick={()=>{navigate("/collections")}}>collections</Link>
+                        <Link onClick={() => { navigate("/collections") }}>collections</Link>
                       </Text>
                       <Text
                         fontFamily={"Inter"}
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        <Link onClick={()=>{navigate("/help")}}>help</Link>
+                        <Link onClick={() => { navigate("/help") }}>help</Link>
                       </Text>
                     </Box>
                   </Col>
@@ -167,11 +161,11 @@ const Footer = () => {
                         COLLECTIONS
                       </Text>
                       {loading ? <Loader /> : (
-                        names.map((name, index) => (
+                        names.map((item, index) => (
                           <Text
                             _hover={{ color: "grey" }}
                             onClick={() => {
-                              navigate(`/collections/${name.bookSlug}`)
+                              navigate(`/collections/${item.name}`)
                             }}
                             key={index + 1}
                             fontFamily={"Inter"}
@@ -179,7 +173,7 @@ const Footer = () => {
                             color={"white"} fontWeight={400}
                             width={"130px"}
                           >
-                            {name.bookName}
+                            {item.collection[0].title}
                           </Text>
                         ))
                       )}

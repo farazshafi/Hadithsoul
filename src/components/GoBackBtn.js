@@ -16,7 +16,6 @@ const GoBackBtn = ({ page, name, bookname, chapter }) => {
             >
                 <Button
                     onClick={() => {
-                        {
                             page === "AboutImam" && navigate(`/collections/${name}`)
                             page === "Hadith" && navigate(`/collections/${name}`)
                             page === "Help" && navigate("/")
@@ -25,7 +24,6 @@ const GoBackBtn = ({ page, name, bookname, chapter }) => {
                             page === "Home" && navigate("/")
                             page === "Search" && navigate("/")
                             page === "SingleHadithPage" && navigate(`/collections/${name}/book/${bookname}/${chapter}`)
-                        }
                     }}
                     size={{ base: "sm", md: "md", lg: "lg" }}
                     bg={"white"}
