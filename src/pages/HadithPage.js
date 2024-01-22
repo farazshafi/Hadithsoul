@@ -48,23 +48,6 @@ const HadithPage = () => {
                     setLastPage(Math.ceil(totalhadiths / perPage));
 
                 }
-            } else if (name === "darimi") {
-                if (chapter === 0) {
-                    const chapterJson = require(`../data/byChapter/theBooks/darimi/1.json`);
-                    setHadith(chapterJson.hadiths)
-                    setBookName([])
-                    setTotalHadiths(chapterJson.metadata.length)
-                    let totalhadiths = chapterJson.metadata.length;
-                    setLastPage(Math.ceil(totalhadiths / perPage));
-                } else {
-                    const chapterJson = require(`../data/byChapter/theBooks/${name}/${Number(chapter + 1)}.json`);
-                    setHadith(chapterJson.hadiths)
-                    setBookName(chapterJson.metadata.english.introduction)
-                    setTotalHadiths(chapterJson.metadata.length)
-                    let totalhadiths = chapterJson.metadata.length;
-                    setLastPage(Math.ceil(totalhadiths / perPage));
-
-                }
             }
             // else if (name === "forty") {
             //     if (chapter === 1) {

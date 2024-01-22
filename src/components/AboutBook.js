@@ -16,19 +16,8 @@ import booksOfMuslim from "../data/book chapters/muslimBookChapters"
 import booksOfMalik from "../data/book chapters/malikBookChapters"
 import booksOfNasai from "../data/book chapters/nasaiBookChapter"
 import booksOfAbudawd from "../data/book chapters/abudawudBookChapter"
-import booksOfTirmidhi from "../data/book chapters/tirmidhiBookChapter"
 import booksOfIbnmajah from "../data/book chapters/ibnmajahBookChapter"
 import booksOfAhmad from "../data/book chapters/ahmadBookChapter"
-import booksOfForty from "../data/book chapters/fortyBookChapter"
-import booksOfRiyadussalihin from "../data/book chapters/riyadussalihinBookChapter"
-import booksOfMishkat from "../data/book chapters/mishkatBookChapter"
-import booksOfAdab from "../data/book chapters/adabBookChapter"
-import booksOfShamail from "../data/book chapters/shamailBookChapters"
-import booksOfHisn from "../data/book chapters/hisnBookChapters"
-import booksOfVirtues from "../data/book chapters/virtuesBookChapter"
-import booksOfbulugh from '../data/book chapters/bulughBookChapters'
-import booksOfNawawi from "../data/book chapters/nawawiBookChapter"
-import booksOfDarimi from "../data/book chapters/darimiBookChapter"
 
 const AboutBook = ({ name }) => {
     const [bookName, setBookName] = useState([])
@@ -42,19 +31,8 @@ const AboutBook = ({ name }) => {
         malik: booksOfMalik.data,
         nasai: booksOfNasai.data,
         abudawud: booksOfAbudawd.data,
-        tirmidhi: booksOfTirmidhi.data,
         ibnmajah: booksOfIbnmajah.data,
         ahmad: booksOfAhmad.data,
-        forty: booksOfForty.data,
-        riyadussalihin: booksOfRiyadussalihin.data,
-        mishkat: booksOfMishkat.data,
-        adab: booksOfAdab.data,
-        shamail: booksOfShamail.data,
-        bulugh: booksOfbulugh.data,
-        hisn: booksOfHisn.data,
-        virtues: booksOfVirtues.data,
-        nawawi40: booksOfNawawi.data,
-        darimi: booksOfDarimi.data,
 
     };
 
